@@ -11,6 +11,7 @@ public class User {
         this.uid = uid;
         this.apiKey = api_key;
         this.username = username;
+        this.isOnline = false;
     }
 
     public boolean isOnline() {

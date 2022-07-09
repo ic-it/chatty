@@ -9,20 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/config/MySpringMvcDispatcherSerlvetIntitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/config/SpringConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/swagger.yaml" afterDir="false" />
+    <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "spring.configuration.checksum": "8e65f87727c7659a8ff6c1eafd5f76b1"
   }
@@ -174,8 +165,16 @@
       <updated>1657298931502</updated>
       <workItem from="1657298937746" duration="265000" />
       <workItem from="1657299242593" duration="7927000" />
-      <workItem from="1657319421149" duration="15403000" />
+      <workItem from="1657319421149" duration="16681000" />
     </task>
+    <task id="LOCAL-00001" summary="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user">
+      <created>1657336220025</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657336220025</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +185,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -194,5 +210,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user" />
   </component>
 </project>

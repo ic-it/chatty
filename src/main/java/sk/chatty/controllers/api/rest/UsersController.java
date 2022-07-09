@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import sk.chatty.dao.UserDAO;
 import sk.chatty.models.User;
 
+import java.util.ArrayList;
+
 
 /**
  * Actions with user/users
@@ -67,4 +69,18 @@ public class UsersController {
         user.setUsername(username);
         return user;
     }
+
+    /**
+     * Get all users
+     *
+     * @param api_key api_key
+     * @return new User
+     */
+    @GetMapping("/getUsers")
+    public ArrayList<User> getUsers(@RequestParam("api_key") String api_key) {
+        if (userDAO.getUser(api_key) == null)
+            return new ArrayList<>();
+        return userDAO.getUsers(api_key);
+    }
+
 }
