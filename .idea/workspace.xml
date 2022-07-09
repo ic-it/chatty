@@ -9,16 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+    <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment=".idea">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/ChatsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/ChatDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/MessageDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/Chat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/config/SpringConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/swagger.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +179,7 @@
       <workItem from="1657298937746" duration="265000" />
       <workItem from="1657299242593" duration="7927000" />
       <workItem from="1657319421149" duration="16951000" />
-      <workItem from="1657373637186" duration="8745000" />
+      <workItem from="1657373637186" duration="19846000" />
     </task>
     <task id="LOCAL-00001" summary="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user">
       <created>1657336220025</created>
@@ -195,7 +195,63 @@
       <option name="project" value="LOCAL" />
       <updated>1657337405323</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add props for db">
+      <created>1657384639079</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384639079</updated>
+    </task>
+    <task id="LOCAL-00004" summary="new dependencies">
+      <created>1657384795915</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384795915</updated>
+    </task>
+    <task id="LOCAL-00005" summary="small docs on swagger">
+      <created>1657384846462</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384846462</updated>
+    </task>
+    <task id="LOCAL-00006" summary="database remake">
+      <created>1657384865428</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384865428</updated>
+    </task>
+    <task id="LOCAL-00007" summary="database remake">
+      <created>1657384885225</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384885225</updated>
+    </task>
+    <task id="LOCAL-00008" summary="database remake">
+      <created>1657384899382</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384899382</updated>
+    </task>
+    <task id="LOCAL-00009" summary="null">
+      <created>1657384911775</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384911776</updated>
+    </task>
+    <task id="LOCAL-00010" summary=".idea">
+      <created>1657384918445</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657384918445</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +289,27 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user" />
     <MESSAGE value="Create getUsers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create getUsers" />
+    <MESSAGE value="add props for db" />
+    <MESSAGE value="new dependencies" />
+    <MESSAGE value="small docs on swagger" />
+    <MESSAGE value="database remake" />
+    <MESSAGE value="null" />
+    <MESSAGE value=".idea" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/sk/chatty/dao/ChatDAO.java</url>
+          <line>110</line>
+          <properties class="sk.chatty.dao.ChatDAO" method="getChatMessages">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
