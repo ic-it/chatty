@@ -1,6 +1,8 @@
 package sk.chatty.models;
 
 
+import java.sql.Connection;
+
 public class User {
     private int uid;
     private String apiKey;
@@ -12,6 +14,17 @@ public class User {
         this.apiKey = api_key;
         this.username = username;
         this.isOnline = false;
+    }
+
+    public User(int uid, String api_key, String username, boolean isOnline) {
+        this.uid = uid;
+        this.apiKey = api_key;
+        this.username = username;
+        this.isOnline = isOnline;
+    }
+
+    public User() {
+
     }
 
     public boolean isOnline() {
