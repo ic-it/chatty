@@ -1,10 +1,6 @@
 package sk.chatty.controllers.api.rest;
 
-import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import sk.chatty.dao.UserDAO;
 import sk.chatty.models.User;
@@ -94,15 +90,14 @@ public class UsersController {
      * Get user info
      *
      * @param api_key api_key
-     * @param uid user id
+     * @param id user id
      * @return new User
      */
     @GetMapping("/getUser")
     public User getUser(@RequestParam("api_key") String api_key,
-                                   @RequestParam("uid") int uid) throws SQLException {
+                                   @RequestParam("cid") int cid) throws SQLException {
         if (userDAO.getMe(api_key) == null)
             return new User();
-        return userDAO.getUser(api_key, uid);
+        return userDAO.getUser(api_key, cid);
     }
-
 }

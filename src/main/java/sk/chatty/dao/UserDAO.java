@@ -33,7 +33,7 @@ public class UserDAO {
 
     /**
      * Get all users.
-     * As same as at `public User getUser(String apiKey, int uid) throws SQLException`,
+     * As same as at `public User getUser(String apiKey, int id) throws SQLException`,
      * api key is not used yet but in future I cat realize blacklist
      *
      * @param apiKey api key
@@ -60,7 +60,7 @@ public class UserDAO {
      * So for now, I thought it was possible to pass the unused parameter apiKey.
      *
      * @param apiKey api key
-     * @param uid userId
+     * @param id userId
      * @return User if it exists or null if the user does not exist or you are blacklisted
      */
     public User getUser(String apiKey, int uid) throws SQLException {
@@ -118,10 +118,11 @@ public class UserDAO {
      * @return User
      */
     public User updateUser(User user) throws SQLException {
-        String SQL = " UPDATE users SET username = ? WHERE id = ?;";
+        String SQL = " UPDATE users SET username = ?, is_online = ? WHERE id = ?;";
         PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setString(1, user.getUsername());
-        ps.setInt(2, user.getUid());
+        ps.setBoolean(2, user.getIsOnline());
+        ps.setInt(3, user.getId());
         ps.executeUpdate();
         return user;
     }
