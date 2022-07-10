@@ -9,16 +9,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment=".idea">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/ChatsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/ChatDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/MessageDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/Chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/Message.java" afterDir="false" />
+    <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment="swagger">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/client/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/Login-Form-Basic-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/Ultimate-Sidebar-Menu-BS5.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/messages.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/sendMessage.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/Ultimate-Sidebar-Menu-BS5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/swagger-ui/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/swagger-ui/oauth2-redirect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/templates/chat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/config/SpringConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/ChatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/ChatsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/controllers/api/rest/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/ChatDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/ChatDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/MessageDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/chatty/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,33 +76,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "8e65f87727c7659a8ff6c1eafd5f76b1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;8e65f87727c7659a8ff6c1eafd5f76b1&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources/docs" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="$PROJECT_DIR$/src/main/resources/docs/swagger.yaml" />
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 9.0.64" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.64" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://0.0.0.0:8080/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="chatty:war exploded">
@@ -179,7 +220,9 @@
       <workItem from="1657298937746" duration="265000" />
       <workItem from="1657299242593" duration="7927000" />
       <workItem from="1657319421149" duration="16951000" />
-      <workItem from="1657373637186" duration="19846000" />
+      <workItem from="1657373637186" duration="20003000" />
+      <workItem from="1657404073267" duration="13756000" />
+      <workItem from="1657455889879" duration="16990000" />
     </task>
     <task id="LOCAL-00001" summary="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user">
       <created>1657336220025</created>
@@ -251,7 +294,28 @@
       <option name="project" value="LOCAL" />
       <updated>1657384918445</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Create chat and messages.&#10;Realize create chat with 1/1 support (send message with type join_chat).">
+      <created>1657396733009</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657396733009</updated>
+    </task>
+    <task id="LOCAL-00012" summary=".idea">
+      <created>1657396745582</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657396745582</updated>
+    </task>
+    <task id="LOCAL-00013" summary="swagger">
+      <created>1657473422505</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657473422505</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,22 +358,9 @@
     <MESSAGE value="small docs on swagger" />
     <MESSAGE value="database remake" />
     <MESSAGE value="null" />
+    <MESSAGE value="Create chat and messages.&#10;Realize create chat with 1/1 support (send message with type join_chat)." />
     <MESSAGE value=".idea" />
-    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/sk/chatty/dao/ChatDAO.java</url>
-          <line>110</line>
-          <properties class="sk.chatty.dao.ChatDAO" method="getChatMessages">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="swagger" />
   </component>
 </project>
