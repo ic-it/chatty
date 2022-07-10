@@ -1,6 +1,8 @@
 package sk.chatty.controllers.api.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sk.chatty.dao.UserDAO;
 import sk.chatty.models.User;
@@ -13,7 +15,6 @@ import java.util.ArrayList;
  * Actions with user/users
  */
 
-//@Validated
 @RequestMapping("/api/v1")
 @RestController
 public class UsersController {
@@ -28,76 +29,94 @@ public class UsersController {
      * Create User
      *
      * @param username User name
-     * @return new User
+     * @return User Ok or BAD_REQUEST
      */
     @GetMapping("/createUser")
-    public User createNewUser(@RequestParam("username") String username) throws SQLException {
+    @PostMapping("/createUser")
+    public ResponseEntity<User> createNewUser(@RequestParam("username") String username) throws SQLException {
+        // max uname length
+        if (username.length() > 200 || username.length() < 1)
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
+
         User user = userDAO.createUser(username);
         if (user == null)
-            return new User();
-        return user;
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     /**
      * Get information about Me
      *
-     * @param api_key api_key
-     * @return Me
+     * @param apiKey api_key
+     * @return User Ok or BAD_REQUEST
      */
     @GetMapping("/me")
-    public User getMe(@RequestParam("api_key") String api_key) throws SQLException {
-        User user = userDAO.getMe(api_key);
+    public ResponseEntity<User> getMe(@RequestParam("api_key") String apiKey) throws SQLException {
+        User user = userDAO.getMe(apiKey);
+
+        // If invalid key
         if (user == null)
-            return new User();
-        return user;
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     /**
      * Change Username
      *
-     * @param api_key api_key
+     * @param apiKey api_key
      * @param username new username
-     * @return Me
+     * @return User Ok or BAD_REQUEST
      */
     @GetMapping("/me/change")
-    public User changeMe(@RequestParam("api_key") String api_key,
+    @PostMapping("/me/change")
+    public ResponseEntity<User> changeMe(@RequestParam("api_key") String apiKey,
                          @RequestParam("username") String username) throws SQLException {
-        User user = userDAO.getMe(api_key);
+        // max uname length
+        if (username.length() > 200 || username.length() < 1)
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
 
+        User user = userDAO.getMe(apiKey);
+        // If invalid key
         if (user == null)
-            return new User();
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
 
         user.setUsername(username);
         userDAO.updateUser(user);
-        return user;
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     /**
      * Get all users
      *
-     * @param api_key api_key
-     * @return new User
+     * @param apiKey api_key
+     * @return User Ok or BAD_REQUEST
      */
     @GetMapping("/getUsers")
-    public ArrayList<User> getUsers(@RequestParam("api_key") String api_key) throws SQLException {
-        if (userDAO.getMe(api_key) == null)
-            return new ArrayList<>();
-        return userDAO.getUsers(api_key);
+    public ResponseEntity<ArrayList<User>> getUsers(@RequestParam("api_key") String apiKey) throws SQLException {
+        // If invalid key
+        if (userDAO.getMe(apiKey) == null)
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(userDAO.getUsers(apiKey), HttpStatus.OK);
     }
 
 
     /**
      * Get user info
      *
-     * @param api_key api_key
-     * @param id user id
-     * @return new User
+     * @param apiKey api_key
+     * @param uid user uid
+     * @return User Ok or BAD_REQUEST
      */
     @GetMapping("/getUser")
-    public User getUser(@RequestParam("api_key") String api_key,
-                                   @RequestParam("cid") int cid) throws SQLException {
-        if (userDAO.getMe(api_key) == null)
-            return new User();
-        return userDAO.getUser(api_key, cid);
+    public ResponseEntity<User> getUser(@RequestParam("api_key") String apiKey,
+                        @RequestParam("uid") int uid) throws SQLException {
+        if (userDAO.getMe(apiKey) == null)
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
+        User user = userDAO.getUser(apiKey, uid);
+
+        // If user not found
+        if (user == null)
+            return new ResponseEntity<>(new User(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

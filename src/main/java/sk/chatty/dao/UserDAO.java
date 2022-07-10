@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-@PropertySource("classpath:database.properties")
+@PropertySource("classpath:application.properties")
 public class UserDAO {
     private static Connection connection;
 
