@@ -39,9 +39,9 @@ WORKDIR /user/local/tomcat
 
 COPY ./tomcat /usr/local/tomcat
 
-RUN rm -rf /usr/local/tomcat/webapps/*
+RUN mkdir /usr/local/tomcat/webapps/
 
-RUN cp -rf /usr/src/app/target/chatty /usr/local/tomcat/webapps/ROOT
+RUN cp -R /usr/src/app/target/chatty /usr/local/tomcat/webapps/ROOT
 RUN cp /usr/src/app/target/chatty.war /usr/local/tomcat/webapps/ROOT.war
 
 
