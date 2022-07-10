@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment="Readme">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +198,7 @@
       <workItem from="1657485488131" duration="315000" />
       <workItem from="1657485847025" duration="19000" />
       <workItem from="1657485933021" duration="57000" />
+      <workItem from="1657486427545" duration="90000" />
     </task>
     <task id="LOCAL-00001" summary="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user">
       <created>1657336220025</created>
