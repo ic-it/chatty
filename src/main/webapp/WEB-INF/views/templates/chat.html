@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>chatty</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
+    <link rel="stylesheet" href="assets/css/messages.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Ultimate-Sidebar-Menu-BS5.css">
+</head>
+
+<body>
+    <div><a class="btn btn-primary btn-customized open-menu" role="button" style="background: #A3BE8C;"><i class="fa fa-navicon"></i>&nbsp;Chats</a>
+        <div class="sidebar">
+            <div class="dismiss"><i class="fa fa-caret-left"></i></div>
+            <div class="brand">
+                <p class="navbar-brand">Users Online</p>
+            </div>
+            <nav class="navbar navbar-dark navbar-expand">
+                <div class="container-fluid">
+                    <ul class="navbar-nav flex-column me-auto">
+                        <li class="nav-item"></li>
+                        <li class="nav-item"><a class="nav-link" href="?user=1">User1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?user=2">User2</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="overlay"></div>
+    </div>
+    <div class="chatbackground">
+        <div class="row chat-body">
+            <div class="col">
+                <div class="myscroll" id="myscroll">
+                    <div class="imessage" id="chat">
+                        <p class="from-them">start</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-them">Paragraph</p>
+                        <p class="from-me">Testtexr</p>
+                        <p class="from-me">end</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row chat-input">
+            <div class="col">
+                <div class="message-box">
+                    <input type="text" class="message-input" placeholder="Text" id="messagetext">
+                    <div class="send-message" onclick="testaddmess()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let myscroll = document.getElementById("myscroll");
+            myscroll.scrollTo(999999999999999999, 999999999999999999999);
+        
+
+        function testaddmess()
+        {
+            let chat = document.getElementById("chat");
+            let new_mess = document.createElement("p");
+            new_mess.setAttribute("class", "from-me");
+            new_mess.innerText = document.getElementById("messagetext").value;
+            chat.append(new_mess);
+            myscroll.scrollTo(999999999999999999, 999999999999999999999);
+            
+        }
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Ultimate-Sidebar-Menu-BS5.js"></script>
+</body>
+
+</html>

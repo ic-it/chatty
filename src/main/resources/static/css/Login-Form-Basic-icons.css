@@ -1,0 +1,123 @@
+.bs-icon {
+  --bs-icon-size: .75rem;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--bs-icon-size);
+  width: calc(var(--bs-icon-size) * 2);
+  height: calc(var(--bs-icon-size) * 2);
+  color: var(--bs-primary);
+}
+
+.bs-icon-xs {
+  --bs-icon-size: 1rem;
+  width: calc(var(--bs-icon-size) * 1.5);
+  height: calc(var(--bs-icon-size) * 1.5);
+}
+
+.bs-icon-sm {
+  --bs-icon-size: 1rem;
+}
+
+.bs-icon-md {
+  --bs-icon-size: 1.5rem;
+}
+
+.bs-icon-lg {
+  --bs-icon-size: 2rem;
+}
+
+.bs-icon-xl {
+  --bs-icon-size: 2.5rem;
+}
+
+.bs-icon.bs-icon-primary {
+  color: var(--bs-white);
+  background: var(--bs-primary);
+}
+
+.bs-icon.bs-icon-primary-light {
+  color: var(--bs-primary);
+  background: rgba(var(--bs-primary-rgb), .2);
+}
+
+.bs-icon.bs-icon-semi-white {
+  color: var(--bs-primary);
+  background: rgba(255, 255, 255, .5);
+}
+
+.bs-icon.bs-icon-rounded {
+  border-radius: .5rem;
+}
+
+.bs-icon.bs-icon-circle {
+  border-radius: 50%;
+}
+
+.chatbackground {
+  background-color: #D8DEE9;
+  border-color: #4C566A;
+  border-radius: 5px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.chat-body {
+  height: 91vh;
+  margin-bottom: 1vh;
+  /*margin-left: 1vw;*/
+  /*margin-right: 1vw;*/
+  /*margin-top: 1vh;*/
+  border-radius: 10px;
+  background: #3B4252;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/acb65873426833.5c08f5634f7fb.png");
+}
+
+.chat-input {
+  border-radius: 10px;
+  /*background: #5E81AC;*/
+  height: 7vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.send-message {
+  background-image: url("../../assets/img/sendMessage.svg");
+  width: 6vh;
+  height: 6vh;
+  margin-top: 0.5vh;
+  background-color: #5E81AC;
+  border-radius: 20px;
+  background-origin: content-box, padding-box;
+  padding: 10px;
+  background-repeat: no-repeat;
+}
+
+.message-input {
+  width: 70vw;
+  height: 7vh;
+  border-radius: 20px;
+  font-size: 30px;
+  border: 1px solid #2E3440;
+  margin-right: 2vw;
+}
+
+.message-box {
+  display: flex;
+  justify-content: center;
+}
+
+.myscroll {
+  /*width: 300px;*/
+  /*background-color: lightblue;*/
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 !important;
+}
+
