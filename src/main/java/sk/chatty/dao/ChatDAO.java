@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-@PropertySource("classpath:database.properties")
+@PropertySource("classpath:application.properties")
 public class ChatDAO {
     private static Connection connection;
 
@@ -43,14 +43,11 @@ public class ChatDAO {
      * @return       Chat
      * @throws SQLException __
      */
-    public Chat checkAreYouInChat(String apiKey, int uid) throws SQLException {
-        if (userDAO.getMe(apiKey) == null || userDAO.getUser(apiKey, uid) == null)
-            return null;
-
+    public Chat getChatWithUser(String apiKey, int uid) throws SQLException {
         User me = userDAO.getMe(apiKey);
         User user = userDAO.getUser(apiKey, uid);
         String SQL =
-                "SELECT chats.id AS id, chats.name AS name\n" +
+                "SELECT t1.id AS id, t1.name AS name\n" +
                 "From (SELECT chats.id AS id, chats.name AS name\n" +
                 "      FROM chats\n" +
                 "               INNER JOIN messages ON messages.chat_id = chats.id\n" +
@@ -60,7 +57,7 @@ public class ChatDAO {
 
         PreparedStatement ps = connection.prepareStatement(SQL);
         ps.setInt(1, me.getId());
-        ps.setInt(1, user.getId());
+        ps.setInt(2, user.getId());
         ResultSet resultSet = ps.executeQuery();
 
         Chat chat = null;
@@ -69,11 +66,27 @@ public class ChatDAO {
         return chat;
     }
 
+    public List<User> getChatMembers(String apiKey, int cid) throws SQLException {
+        String SQL =
+                "SELECT messages.user_id\n" +
+                "From messages\n" +
+                "WHERE messages.type = 'join_chat' and messages.chat_id = ?;";
+
+        PreparedStatement ps = connection.prepareStatement(SQL);
+        ps.setInt(1, cid);
+        ResultSet resultSet = ps.executeQuery();
+
+        ArrayList<User> chatMembers = new ArrayList<>();
+        while (resultSet.next())
+        {
+            chatMembers.add(userDAO.getUser(apiKey, resultSet.getInt("user_id")));
+        }
+        return chatMembers;
+    }
+
     public Chat createChatWithUser(String apiKey, int uid) throws SQLException {
-        if (checkAreYouInChat(apiKey, uid) != null)
-            return checkAreYouInChat(apiKey, uid);
-        if (userDAO.getMe(apiKey) == null || userDAO.getUser(apiKey, uid) == null)
-            return null;
+        if (getChatWithUser(apiKey, uid) != null)
+            return getChatWithUser(apiKey, uid);
 
         User user1 = userDAO.getUser(apiKey, uid);
         User user2 = userDAO.getMe(apiKey);
@@ -103,12 +116,15 @@ public class ChatDAO {
         ps.setLong(3, Instant.now().getEpochSecond());
         ps.executeUpdate();
 
-        Chat chat = checkAreYouInChat(apiKey, uid);
 
-        return chat;
+        return getChatWithUser(apiKey, uid);
     }
 
-    public List<Message> getChatMessages(String apiKey, int cid) throws SQLException {
+    public ArrayList<Message> getChatMessages(String apiKey, int cid) throws SQLException {
+        User me = userDAO.getMe(apiKey);
+
+        if (getChatMembers(apiKey, cid).stream().filter(user -> user.getId() == me.getId()).findAny().orElse(null) == null)
+            return null;
         String SQL =
                 "SELECT *\n" +
                 "FROM messages\n" +
@@ -129,5 +145,35 @@ public class ChatDAO {
                     resultSet.getString("type")
             ));
         return messages;
+    }
+
+    public Message sendMessage(String apiKey, int cid, String messageText) throws SQLException {
+        User me = userDAO.getMe(apiKey);
+
+        if (getChatMembers(apiKey, cid).stream().filter(user -> user.getId() == me.getId()).findAny().orElse(null) == null)
+            return null;
+
+        String SQL;
+        PreparedStatement ps;
+        ResultSet resultSet;
+
+        SQL = "INSERT INTO messages (chat_id, user_id, text, time, type) VALUES (?, ?, ?, ?, 'text') RETURNING *;";
+        ps = connection.prepareStatement(SQL);
+        ps.setInt(1, cid);
+        ps.setInt(2, me.getId());
+        ps.setString(3, messageText);
+        ps.setLong(4, Instant.now().getEpochSecond());
+        resultSet = ps.executeQuery();
+
+        resultSet.next();
+
+        return new Message(
+                resultSet.getInt("id"),
+                resultSet.getInt("chat_id"),
+                resultSet.getInt("user_id"),
+                resultSet.getString("text"),
+                resultSet.getInt("time"),
+                resultSet.getString("type")
+        );
     }
 }
