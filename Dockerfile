@@ -37,9 +37,13 @@ RUN mvn package
 
 WORKDIR /user/local/tomcat
 
-COPY ./tomcat /usr/local/tomcat
+#COPY ./tomcat /usr/local/tomcat
+#
+RUN mkdir /usr/local/downloads
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.zip -O tomcat.zip -P /usr/local/downloads/
+RUN unzip /usr/local/downloads/tomcat.zip -d /usr/local/downloads/; mv /usr/local/downloads/apache-tomcat* /usr/local/tomcat
 
-RUN mkdir /usr/local/tomcat/webapps/
+RUN rm -rf /usr/local/tomcat/webapps/*
 
 RUN cp -R /usr/src/app/target/chatty /usr/local/tomcat/webapps/ROOT
 RUN cp /usr/src/app/target/chatty.war /usr/local/tomcat/webapps/ROOT.war

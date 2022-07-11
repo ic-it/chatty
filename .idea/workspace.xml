@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbd8e8d-0c83-493b-ac8c-1676a9980218" name="Changes" comment="Readme">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +199,8 @@
       <workItem from="1657485847025" duration="19000" />
       <workItem from="1657485933021" duration="57000" />
       <workItem from="1657486427545" duration="90000" />
+      <workItem from="1657499440250" duration="886000" />
+      <workItem from="1657566010202" duration="489000" />
     </task>
     <task id="LOCAL-00001" summary="First commit&#10;&#10;Create user&#10;Edit user&#10;Get user">
       <created>1657336220025</created>
@@ -347,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657485798770</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Readme">
+      <created>1657500103717</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1657500103718</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +378,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
