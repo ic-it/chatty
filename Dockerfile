@@ -1,33 +1,3 @@
-#FROM maven:3.8.6-jdk-8 as maven
-
-#RUN apt-get update
-
-## Add oracle java 8 repository
-#RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-#RUN apt-get -y install software-properties-common
-#RUN add-apt-repository -y ppa:webupd8team/java
-#RUN apt-get update
-#RUN apt-get install -y default-jdk maven wget
-#RUN rm -rf /var/lib/apt/lists/*
-#RUN rm -rf /var/cache/oracle-jdk8-installer
-#ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-
-#WORKDIR /usr/src/app
-#COPY ./src /usr/src/app/src
-#COPY ./pom.xml /usr/src/app/pom.xml
-#RUN mvn package
-#
-#RUN ls -l /usr/src/app
-#
-#COPY target/chatty.war /usr/src/app
-#
-#COPY target/chatty.war /usr/local/tomee/webapps/
-#
-#EXPOSE 8080
-
-
-
-
 FROM maven:3.8.6-jdk-8 as maven
 
 WORKDIR /usr/src/app
@@ -37,11 +7,12 @@ RUN mvn package
 
 WORKDIR /user/local/tomcat
 
-#COPY ./tomcat /usr/local/tomcat
-#
+
 RUN mkdir /usr/local/downloads
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.zip -O tomcat.zip -P /usr/local/downloads/
-RUN unzip /usr/local/downloads/tomcat.zip -d /usr/local/downloads/; mv /usr/local/downloads/apache-tomcat* /usr/local/tomcat
+RUN ls -l /usr/local/downloads/
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.zip -O /usr/local/downloads/tomcat.zip
+RUN unzip /usr/local/downloads/tomcat.zip -d /usr/local/downloads/
+RUN mv /usr/local/downloads/apache-tomcat* /usr/local/tomcat
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
