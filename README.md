@@ -16,3 +16,4 @@ sudo docker-compose up --build
 
 ## :warning: Important information. :warning:
 Right now I don't have a WEB CLI for the API. But I made a lightweight pythonCLI which you can try out.
+https://github.com/ic-it/chatty/tree/pyCLI
