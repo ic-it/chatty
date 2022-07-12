@@ -93,7 +93,7 @@
                     data = data.chatUpdates;
                     data.forEach(
                         message => {
-                            if (message.chat_id != CID)
+                            if (message.chatId != CID)
                                 return;
                             let new_mess = document.createElement("p");
                             if (message.userId == MY_ID)
