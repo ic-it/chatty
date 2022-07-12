@@ -18,6 +18,12 @@
   scroll-behavior: smooth;
 }
 
+@media only screen and (max-width: 600px) {
+  .myscroll {
+    height: 80vh !important;
+  }
+}
+
 .myscroll {
   overflow: auto;
   scroll-behavior: smooth;

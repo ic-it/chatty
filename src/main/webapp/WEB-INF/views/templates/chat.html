@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
     <title>chatty</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
-    <link rel="stylesheet" href="assets/css/messages.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/Ultimate-Sidebar-Menu-BS5.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/Login-Form-Basic-icons.css?v1">
+    <link rel="stylesheet" href="/css/messages.css?v1">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/Ultimate-Sidebar-Menu-BS5.css">
 </head>
 
 <body>
@@ -23,10 +23,8 @@
             </div>
             <nav class="navbar navbar-dark navbar-expand">
                 <div class="container-fluid">
-                    <ul class="navbar-nav flex-column me-auto">
-                        <li class="nav-item"></li>
-                        <li class="nav-item"><a class="nav-link" href="?user=1">User1</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?user=2">User2</a></li>
+                    <ul class="navbar-nav flex-column me-auto" id="users">
+<!--                        <li class="nav-item"><a class="nav-link" href="?user=1">User1</a></li>-->
                     </ul>
                 </div>
             </nav>
@@ -38,29 +36,29 @@
             <div class="col">
                 <div class="myscroll" id="myscroll">
                     <div class="imessage" id="chat">
-                        <p class="from-them">start</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-them">Paragraph</p>
-                        <p class="from-me">Testtexr</p>
-                        <p class="from-me">end</p>
+<!--                        <p class="from-them">start</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-them">Paragraph</p>-->
+<!--                        <p class="from-me">Testtexr</p>-->
+<!--                        <p class="from-me">end</p>-->
                     </div>
                 </div>
             </div>
@@ -68,30 +66,129 @@
         <div class="row chat-input">
             <div class="col">
                 <div class="message-box">
-                    <input type="text" class="message-input" placeholder="Text" id="messagetext">
-                    <div class="send-message" onclick="testaddmess()"></div>
+                    <input type="text" class="message-input" placeholder="Text" id="messageText">
+                    <div class="send-message" onclick="sendMessage()"></div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        let myscroll = document.getElementById("myscroll");
-            myscroll.scrollTo(999999999999999999, 999999999999999999999);
-        
+        var el = document.getElementById("messageText");
+        el.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+    <script>
+        var API_KEY = localStorage.API_KEY;
+        var MY_ID = localStorage.MY_ID;
+        var CID = localStorage.CID;
 
-        function testaddmess()
+        async function getData() {
+            await fetch(`/api/v1/getUpdates?api_key=${API_KEY}&cid=${CID}`)
+                .then(response => response.json())
+                .then(data => {
+                    let chat = document.getElementById("chat");
+                    data = data.chatUpdates;
+                    data.forEach(
+                        message => {
+                            if (message.chat_id != CID)
+                                return;
+                            let new_mess = document.createElement("p");
+                            if (message.userId == MY_ID)
+                                new_mess.setAttribute("class", "from-me");
+                            else
+                                new_mess.setAttribute("class", "from-them");
+                            if (message.type == "join_chat")
+                                new_mess.innerText = "<<JOIN CHAT>>";
+                            else
+                                new_mess.innerText = message.text;
+                            chat.append(new_mess);
+                        }
+                    )
+                    scrollDown();
+                })
+                .catch(err => console.error(err));
+            getData();
+        }
+
+        if (CID)
         {
-            let chat = document.getElementById("chat");
-            let new_mess = document.createElement("p");
-            new_mess.setAttribute("class", "from-me");
-            new_mess.innerText = document.getElementById("messagetext").value;
-            chat.append(new_mess);
+            showChatMessages();
+            getData();
+        }
+
+        function scrollDown()
+        {
+            let myscroll = document.getElementById("myscroll");
             myscroll.scrollTo(999999999999999999, 999999999999999999999);
+        }
+
+        fetch(`/api/v1/getUsers?api_key=${API_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                let usersList = document.getElementById("users");
+                usersList.innerHTML = "";
+                data.forEach(user => {
+                    usersList.innerHTML += `<li class="nav-item"><a class="nav-link" onclick="joinChatWith(${user.id})">${user.username}</a></li>`;
+                })
+            })
+            .catch(err => console.error(err));
+
+        function showChatMessages()
+        {
+            fetch(`/api/v1/getChatMessages?api_key=${API_KEY}&cid=${CID}`)
+                .then(response => response.json())
+                .then(data => {
+                    let chat = document.getElementById("chat");
+                    chat.innerHTML = "";
+                    data.forEach(
+                        message => {
+                            let new_mess = document.createElement("p");
+                            if (message.userId == MY_ID)
+                                new_mess.setAttribute("class", "from-me");
+                            else
+                                new_mess.setAttribute("class", "from-them");
+                            if (message.type == "join_chat")
+                                new_mess.innerText = "<<JOIN CHAT>>";
+                            else
+                                new_mess.innerText = message.text;
+                            chat.append(new_mess);
+                        }
+                    )
+                    scrollDown();
+                })
+                .catch(err => console.error(err));
+        }
+
+        function joinChatWith(uid)
+        {
+            fetch(`/api/v1/joinChatWith?api_key=${API_KEY}&uid=${uid}`)
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem("CID", data.id);
+                    CID = localStorage.CID;
+                    showChatMessages();
+                })
+                .catch(err => console.error(err));
+            getData();
+        }
+
+        function sendMessage()
+        {
+            let messageText = document.getElementById("messageText").value;
+            fetch(`/api/v1/sendMessage?api_key=${API_KEY}&cid=${CID}&text=${messageText}`)
+                .then(response => response.json())
+                .then(data => {
+                })
+                .catch(err => console.error(err));
+            document.getElementById("messageText").value = "";
             
         }
     </script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/Ultimate-Sidebar-Menu-BS5.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/Ultimate-Sidebar-Menu-BS5.js"></script>
 </body>
 
 </html>

@@ -65,6 +65,12 @@
   margin: 0;
 }
 
+@media only screen and (max-width: 600px) {
+  .chat-body {
+    height: 81vh !important;
+  }
+}
+
 .chat-body {
   height: 91vh;
   margin-bottom: 1vh;
@@ -85,7 +91,7 @@
 }
 
 .send-message {
-  background-image: url("../../assets/img/sendMessage.svg");
+  background-image: url("/img/sendMessage.svg");
   width: 6vh;
   height: 6vh;
   margin-top: 0.5vh;

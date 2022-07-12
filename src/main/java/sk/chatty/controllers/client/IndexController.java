@@ -10,9 +10,15 @@ import java.io.IOException;
 @RequestMapping("/")
 public class IndexController {
     @GetMapping("/")
-    public String createNewUser(){
+    public String index(){
         return "templates/index.html";
     }
+
+    @GetMapping("/chat")
+    public String chat(){
+        return "templates/chat.html";
+    }
+
 
 
     @GetMapping("/api/v1/docs")
